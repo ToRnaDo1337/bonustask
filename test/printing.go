@@ -1,28 +1,22 @@
-package test
+package printing
 
-import "github.com/ToRnaDo1337/bonustask/math"
+import (
+	"fmt"
 
-// PrintResult prints the result of an arithmetic operation
-func PrintResult(result int) {
-	println("Result:", result)
-}
+	"github.com/ToRnaDo1337/bonustask/math"
+)
 
-// PrintCalculatorResult prints the result of a Calculator struct operation
 func PrintCalculatorResult(c *math.Calculator, operation string) {
+	var result int
 	switch operation {
-	case "add":
-		result := math.Add(c.num1, c.num2)
-		println("Result:", result)
-	case "subtract":
-		result := math.Subtract(c.num1, c.num2)
-		println("Result:", result)
+
 	case "multiply":
-		result := c.Multiply()
-		println("Result:", result)
+		result = c.Multiply()
 	case "divide":
-		result := c.Divide()
-		println("Result:", result)
+		result = c.Divide()
 	default:
-		println("Invalid operation")
+		fmt.Println("Invalid operation")
+		return
 	}
+	fmt.Printf("Result: %d\n", result)
 }
